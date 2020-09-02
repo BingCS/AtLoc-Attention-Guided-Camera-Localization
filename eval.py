@@ -113,8 +113,8 @@ for idx, (data, target) in enumerate(loader):
     target[:, :3] = (target[:, :3] * pose_s) + pose_m
 
     # take the middle prediction
-    pred_poses[idx, :] = output[len(output) / 2]
-    targ_poses[idx, :] = target[len(target) / 2]
+    pred_poses[idx, :] = output
+    targ_poses[idx, :] = target
 
 # calculate losses
 t_loss = np.asarray([t_criterion(p, t) for p, t in zip(pred_poses[:, :3], targ_poses[:, :3])])
